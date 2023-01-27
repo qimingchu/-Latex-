@@ -1,3 +1,40 @@
+# 兰州理工大学论文Latex模版
+本项目从[ThuThesis](https://github.com/tuna/thuthesis) v7.3.1的基础上进行修改开发
+## 项目说明
+目前本项目主要适配了本科生的报告封面，加入了兰州理工大学的logo以及对封面中元素进行了部分修改，可用于本科生的论文或综合训练报告，硕士和博士的论文模版仍在修改中
+## 使用说明
+修改thuthesis.tex中的documentclass中的选项即可更换不同的模版,实例如下
+```
+\documentclass[degree=bachelor, degree-type=academic, fontset=mac]{thuthesis}
+  % 学位 degree:
+  %   doctor | master | bachelor
+  % 学位类型 degree-type:
+  %   academic（默认）| professional
+  % 语言 language
+  %   chinese（默认）| english
+  % 字体库 fontset
+  %   windows | mac | fandol | ubuntu
+  % 建议终版使用 Windows 平台的字体编译
+```
+可根据自身实际情况修改本模版\
+在对thuthesis.dtx进行修改后，在命令行中执行以下命令可更新模版文件
+```shell
+xetex thuthesis.ins
+```
+要编译latex请执行
+```shell
+make thesis
+```
+makefile配合shell脚本可实现保存文档后自动编译，具体实现请自行 google\
+同时建议配合git进行版本管理
+
+
+---
+以下为原项目的README说明，请参照说明使用本模版
+
+---
+
+ \
 [![Actions Status](https://github.com/tuna/thuthesis/workflows/Test/badge.svg)](https://github.com/tuna/thuthesis/actions)
 [![GitHub downloads](https://img.shields.io/github/downloads/tuna/thuthesis/total)](https://github.com/tuna/thuthesis/releases)
 [![GitHub commits](https://img.shields.io/github/commits-since/tuna/thuthesis/latest)](https://github.com/tuna/thuthesis/commits/master)

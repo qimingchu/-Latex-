@@ -168,7 +168,7 @@
 % thuthesis-*.bst & \hologo{BibTeX} 参考文献表样式文件\\
 % thuthesis-*.bbx & BibLaTeX 参考文献表样式文件\\
 % thuthesis-*.cbx & BibLaTeX 参考文献引用样式文件\\
-% tsinghua-name-bachelor.pdf & 校名 logo，本科生封面使用 \\\midrule
+% lut_new_logo_black.pdf & 校名 logo，本科生封面使用 \\\midrule
 % thuthesis-example.tex & 示例文档主文件\\
 % spine.tex & 书脊示例文档\\
 % ref/ & 示例文档参考文献目录\\
@@ -273,7 +273,7 @@
 % \subsection{升级}
 % \label{sec:upgrade}
 % 如果需要升级 \thuthesis{}，应当从 GitHub 下载最新的版本，
-% 将 \file{thuthesis.dtx}，\file{thuthesis.ins}，\file{tsinghua-name-bachelor.pdf} 和
+% 将 \file{thuthesis.dtx}，\file{thuthesis.ins}，\file{lut_new_logo_black.pdf} 和
 % \file{thuthesis-*.bst} 拷贝至工作目录覆盖相应的文件，然后按照
 % 第~\ref{sec:generate-cls} 节的内容生成新的模板和使用说明。
 %
@@ -288,7 +288,7 @@
 % \subsection{示例文件}
 % \label{sec:userguide}
 %
-% 模板核心文件有：\file{thuthesis.cls}，\file{tsinghua-name-bachelor.pdf},
+% 模板核心文件有：\file{thuthesis.cls}，\file{lut_new_logo_black.pdf},
 % \file{thuthesis-*.bst}（\hologo{BibTeX}），
 % \file{thuthesis-*.bbx} 和 \file{thuthesis-*.cbx}（BibLaTeX），
 % 但如果没有示例文档会较难下手，所以推荐从模板自带的示例文档入手。其中包括了论文
@@ -1306,7 +1306,7 @@
 %<*cls>
 \hyphenation{Thu-Thesis}
 \def\thuthesis{ThuThesis}
-\def\version{7.3.1}
+\def\version{0.0.1}
 \RequirePackage{kvdefinekeys}
 \RequirePackage{kvsetkeys}
 \RequirePackage{kvoptions}
@@ -1466,7 +1466,7 @@
       doctor,
       postdoc,
     },
-    default = doctor,
+    default = bachelor,
   },
   degree-type = {
     choices = {
@@ -4518,14 +4518,14 @@
       \renewcommand\CJKglue{\hspace{1bp}}%
     \fi
     \ifthu@thesis@type@thesis
-      (申请清华大学\thu@degree@name
+      (申请兰州理工大学\thu@degree@name
       \ifthu@degree@type@professional
         专业%
       \fi
       学位论文)%
     \else
       \ifthu@thesis@type@proposal
-        (清华大学%
+        (兰州理工大学%
         \ifthu@degree@doctor
           博士%
         \else
@@ -4737,7 +4737,7 @@
 }
 \newcommand\thu@titlepage@en@degree{%
   \thu@thesis@name@en{} submitted to\par
-  {\bfseries Tsinghua University\par}%
+  {\bfseries Lanzhou University of Technology\par}%
   in partial fulfillment of the requirement\par
   for the
   \ifthu@degree@type@professional
@@ -4797,8 +4797,10 @@
   \vfill
   \begingroup
     \centering
-    \includegraphics{tsinghua-name-bachelor.pdf}%
-    \vskip 0.94cm%
+    % \includegraphics{tsinghua-name-bachelor.pdf}%
+    % \vskip 0.94cm%
+    \includegraphics[width=10cm]{lut_new_logo_black.pdf}%
+    \vskip 0.30cm%
     {\sffamily\bfseries\xiaochu\ziju{0.5}综合论文训练\par}%
   \endgroup
   \vskip 1.8cm%
@@ -4841,12 +4843,17 @@
     \def\thu@name@title@format##1##2{%
       \thu@stretch{3em}{##1}\quad ##2%
     }%
-    \thu@info@item{系别}{}{\thu@department}%
-    \thu@info@item{专业}{}{\thu@discipline}%
-    \thu@info@item{姓名}{\thu@name@title}{\thu@author}%
-    \thu@info@item{指导教师}{\thu@name@title}{\thu@supervisor}%
-    \thu@info@item{辅导教师}{\thu@name@title}{\thu@associate@supervisor}%
-    \thu@info@item{联合指导教师}{\thu@name@title}{\thu@co@supervisor}%
+    \parbox[t]{347bp}{%
+    \renewcommand\ULthickness{0.05em}%
+    \renewcommand\ULdepth{0.17em}%
+    % \expandafter\uline\expandafter{\thu@title}\par
+    \thu@info@item{系别}{}{\thu@underline[190pt]{\thu@department}}%
+    \thu@info@item{专业}{}{\thu@underline[190pt]{\thu@discipline}}%
+    \thu@info@item{姓名}{\thu@name@title}{\thu@underline[190pt]{\thu@author}}%
+    \thu@info@item{指导教师}{\thu@name@title}{\thu@underline[190pt]{\thu@supervisor}}%
+    % \thu@info@item{辅导教师}{\thu@name@title}{\thu@underline[190pt]{\thu@associate@supervisor}}%
+    % \thu@info@item{联合指导教师}{\thu@name@title}{\thu@underline[190pt]{\thu@co@supervisor}}%
+    }\par
   \endgroup
   \vskip 1.4cm%
   \begingroup
@@ -4879,7 +4886,7 @@
     }%
     \vskip 3.15cm%
     {\sffamily\bfseries\xiaoer[2.6]%
-      {\ziju{1.5}清华大学\par}%
+      {\ziju{1.5}兰州理工大学\par}%
       {\ziju{0.5}博士后研究工作报告\par}%
     }%
     \vskip 0.2cm%
@@ -4903,7 +4910,7 @@
       \thu@uline[5.9cm]{\thu@format@date{\thu@date@zh@digit@short}{\thu@date}}\par
     }%
     \vskip 0.45cm%
-    {\xiaosi[2]{\ziju{1}清华大学}\quad （北京）\par}%
+    {\xiaosi[2]{\ziju{1}兰州理工大学}\quad （兰州）\par}%
     \vskip 0.25cm%
     {\xiaosi[2]\thu@format@date{\thu@date@zh@digit@short}{\thu@date}\par}%
   \end{center}%
@@ -4939,7 +4946,7 @@
       研究工作期满时间\quad\thu@format@date{\thu@date@zh@digit}{\thu@end@date}\par
     }%
     \vskip 2.1cm%
-    {\xiaosi[2.6]清华大学人事处（北京）\par}%
+    {\xiaosi[2.6]兰州理工大学人事处\par}%
     \vskip 0.6cm%
     {\wuhao\thu@format@date{\thu@date@zh@digit@short}{\thu@date}\par}%
   \end{center}%
@@ -5048,8 +5055,8 @@
   \vskip 13bp%
   \begingroup
     \fontsize{14bp}{26bp}\selectfont
-    本人完全了解清华大学有关保留、使用学位论文的规定，即：\par
-    清华大学拥有在著作权法规定范围内学位论文的使用权，其中包括：%
+    本人完全了解兰州理工大学有关保留、使用学位论文的规定，即：\par
+    兰州理工大学拥有在著作权法规定范围内学位论文的使用权，其中包括：%
     （1）\nobreak 已获学位的研究生必须按学校规定提交学位论文，%
     学校可以采用影印、缩印或其他复制手段保存研究生上交的学位论文；\allowbreak
     （2）\nobreak 为教学和科研目的，学校可以将公开的学位论文作为资料在图书馆、资料室等场所供校内师生阅读，%
@@ -5087,7 +5094,7 @@
     \thispagestyle{empty}%
   \endgroup
   \vskip 4bp%
-  本人完全了解清华大学有关保留、使用学位论文的规定，即：%
+  本人完全了解兰州理工大学有关保留、使用学位论文的规定，即：%
   学校有权保留学位论文的复印件，允许该论文被查阅和借阅；%
   学校可以公布该论文的全部或部分内容，可以采用影印、缩印或其他复制手段保存该论文。\par
   \textbf{(涉密的学位论文在解密后应遵守此规定)}\par
