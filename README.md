@@ -3,7 +3,7 @@
 ## 项目说明
 目前本项目主要适配了本科生的报告封面，加入了兰州理工大学的logo以及对封面中元素进行了部分修改，可用于本科生的论文或综合训练报告，硕士和博士的论文模版仍在修改中
 ## 使用说明
-修改thuthesis.tex中的documentclass中的选项即可更换不同的模版,实例如下
+修改thuthesis-example.tex中的documentclass中的选项即可更换不同的模版,实例如下
 ```
 \documentclass[degree=bachelor, degree-type=academic, fontset=mac]{thuthesis}
   % 学位 degree:
